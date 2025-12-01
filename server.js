@@ -77,6 +77,11 @@ app.post('/api/reset', async (req, res) => {
     }
 });
 
+// Serve index.html for root path
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Book Club server running on http://localhost:${PORT}`);
